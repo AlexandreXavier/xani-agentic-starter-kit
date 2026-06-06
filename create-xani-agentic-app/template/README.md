@@ -1,37 +1,37 @@
 # Xani Agentic Starter Kit
 
-A production-oriented starter kit for building AI-powered web apps with an agentic development workflow. It gives you a working Next.js app, authentication, PostgreSQL, Drizzle ORM, AI SDK integration, shadcn/ui components, and project instructions that help coding agents plan, split, implement, review, and verify changes.
+Um starter kit orientado para produção que permite criar aplicações web com inteligência artificial através de um fluxo de desenvolvimento agêntico. Inclui uma aplicação Next.js funcional, autenticação, PostgreSQL, Drizzle ORM, integração com o AI SDK, componentes shadcn/ui e instruções de projeto que ajudam os agentes de programação a planear, dividir, implementar, rever e verificar alterações.
 
-The goal is simple: install the starter, describe the product you want to build, and let your coding agent help turn the boilerplate into your actual POC, MVP, or internal tool.
+O objetivo é simples: instalar o starter, descrever o produto que pretende construir e deixar o seu agente de programação ajudar a transformar o boilerplate na sua POC, MVP ou ferramenta interna real.
 
-## What You Get
+## O Que Recebe
 
-- **Next.js 16 and React 19** with the App Router
-- **TypeScript** and a strict project setup
-- **Better Auth** with email/password enabled by default
-- **PostgreSQL and Drizzle ORM** for schema and migrations
-- **AI SDK and OpenRouter** for chat and AI features
-- **shadcn/ui, Tailwind CSS, and Lucide icons** for the UI foundation
-- **Local or Vercel Blob file storage** through one storage abstraction
-- **Agent instructions** through `AGENTS.md` and `CLAUDE.md`
-- **Agent skills** for specs, implementation, reviews, security scans, UI work, and shipping
+- **Next.js 16 e React 19** com o App Router
+- **TypeScript** e uma configuração de projeto rigorosa
+- **Better Auth** com autenticação por email/palavra-passe ativada por predefinição
+- **PostgreSQL e Drizzle ORM** para esquema e migrações
+- **AI SDK e OpenRouter** para chat e funcionalidades de IA
+- **shadcn/ui, Tailwind CSS e ícones Lucide** como base da interface
+- **Armazenamento de ficheiros local ou Vercel Blob** através de uma única abstração de armazenamento
+- **Instruções para agentes** através de `AGENTS.md` e `CLAUDE.md`
+- **Skills para agentes** para especificações, implementação, revisões, análises de segurança, trabalho de interface e publicação
 
-## Quick Start
+## Início Rápido
 
-Create a new app with the CLI:
+Crie uma nova aplicação com a CLI:
 
 ```bash
 npx create-xani-agentic-app@latest my-app
 cd my-app
 ```
 
-Or create the app in the current directory:
+Ou crie a aplicação no diretório atual:
 
 ```bash
 npx create-xani-agentic-app@latest .
 ```
 
-Then configure and run the app:
+De seguida, configure e execute a aplicação:
 
 ```bash
 cp env.example .env
@@ -40,42 +40,42 @@ pnpm db:migrate
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Abra [http://localhost:3000](http://localhost:3000).
 
-The CLI copies the starter files, installs dependencies with your selected package manager, and prepares the environment file. If you use `npm`, replace the `pnpm` commands above with `npm run`.
+A CLI copia os ficheiros do starter, instala as dependências com o gestor de pacotes que selecionou e prepara o ficheiro de ambiente. Se utilizar o `npm`, substitua os comandos `pnpm` acima por `npm run`.
 
-## Guided Setup with Claude Code (Optional)
+## Configuração Guiada com o Claude Code (Opcional)
 
-If you use Claude Code, you can install the `create-xani-agentic-app` skill and have Claude walk you through the entire setup — folder strategy, package manager, PostgreSQL (Docker / Neon / Vercel / BYO), `.env` config, migrations, optional integrations (OpenRouter, Vercel Blob, Polar, email), build verification, and dev-server check — ending at a verified `http://localhost:3000`.
+Se utilizar o Claude Code, pode instalar a skill `create-xani-agentic-app` e deixar o Claude conduzi-lo por toda a configuração — estratégia de pastas, gestor de pacotes, PostgreSQL (Docker / Neon / Vercel / próprio), configuração do `.env`, migrações, integrações opcionais (OpenRouter, Vercel Blob, Polar, email), verificação de build e validação do servidor de desenvolvimento — terminando num `http://localhost:3000` verificado.
 
-Install the skill:
+Instale a skill:
 
 ```bash
 npx skills add AlexandreXavier/xani-agentic-starter-kit@create-xani-agentic-app --agent claude-code
 ```
 
-The `--agent claude-code` flag is required. Without it, the installer drops the skill into 37+ IDE adapter folders at the project root.
+A flag `--agent claude-code` é obrigatória. Sem ela, o instalador coloca a skill em mais de 37 pastas de adaptadores de IDE na raiz do projeto.
 
-Once installed, ask Claude something like:
+Depois de instalada, peça algo ao Claude como:
 
 ```text
 Scaffold a new Xani Agentic Starter Kit project here.
 ```
 
-Claude will run the skill end-to-end and ask you the few decisions it actually needs to make.
+O Claude executará a skill de ponta a ponta e fará apenas as poucas decisões que realmente precisa de tomar.
 
-## Prerequisites
+## Pré-requisitos
 
-- Node.js 18 or newer
+- Node.js 18 ou mais recente
 - Git
-- PostgreSQL, either through the included Docker Compose file or a hosted provider
-- A package manager: `pnpm`, `npm`, or `yarn`
-- Optional: an OpenRouter API key for AI chat features
-- Optional: a Vercel account for deployment, hosted Postgres, and Blob storage
+- PostgreSQL, através do ficheiro Docker Compose incluído ou de um fornecedor alojado
+- Um gestor de pacotes: `pnpm`, `npm` ou `yarn`
+- Opcional: uma chave de API do OpenRouter para as funcionalidades de chat com IA
+- Opcional: uma conta Vercel para implementação, Postgres alojado e armazenamento Blob
 
-## Environment Variables
+## Variáveis de Ambiente
 
-Start from `env.example` and update values for your environment:
+Comece a partir de `env.example` e atualize os valores para o seu ambiente:
 
 ```env
 # Database
@@ -102,64 +102,64 @@ POLAR_WEBHOOK_SECRET=polar_
 POLAR_ACCESS_TOKEN=polar_
 ```
 
-For local development, the default database URL works with the included `docker-compose.yml`. For production, use the database URL from your hosting provider.
+Para desenvolvimento local, o URL de base de dados predefinido funciona com o `docker-compose.yml` incluído. Para produção, utilize o URL de base de dados do seu fornecedor de alojamento.
 
-Generate a strong `BETTER_AUTH_SECRET` before deploying. The starter ships with a development value only so you can get moving quickly.
+Gere um `BETTER_AUTH_SECRET` forte antes de implementar. O starter inclui apenas um valor de desenvolvimento para que possa começar rapidamente.
 
-## Default Auth
+## Autenticação Predefinida
 
-The starter now defaults to **email and password authentication** through Better Auth. This keeps the first setup small and helps you start building POCs and MVPs without creating OAuth credentials up front.
+O starter passa agora a utilizar por predefinição a **autenticação por email e palavra-passe** através do Better Auth. Isto mantém a primeira configuração simples e ajuda-o a começar a construir POCs e MVPs sem criar credenciais OAuth à partida.
 
-The current auth setup includes:
+A configuração de autenticação atual inclui:
 
-- user registration
-- email/password login
-- protected routes
-- password reset flow
-- email verification flow
+- registo de utilizadores
+- início de sessão por email/palavra-passe
+- rotas protegidas
+- fluxo de reposição de palavra-passe
+- fluxo de verificação de email
 
-In development, verification and password reset links are logged to the terminal instead of being sent through an email provider. When you are ready for production, ask your coding agent to connect an email service and update the Better Auth email callbacks.
+Em desenvolvimento, as ligações de verificação e de reposição de palavra-passe são registadas no terminal em vez de serem enviadas através de um fornecedor de email. Quando estiver pronto para produção, peça ao seu agente de programação para ligar um serviço de email e atualizar os callbacks de email do Better Auth.
 
-### Adding Google OAuth
+### Adicionar o Google OAuth
 
-Google OAuth is no longer the default, but adding it back is straightforward. Ask your coding agent:
+O Google OAuth já não é a predefinição, mas voltar a adicioná-lo é simples. Peça ao seu agente de programação:
 
 ```text
 Add Google OAuth to this Better Auth setup. Keep email/password login enabled, add the Google provider, update the auth UI, and document the required Google environment variables.
 ```
 
-Your agent should update the Better Auth config, add the required `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` variables, and adjust the login UI.
+O seu agente deverá atualizar a configuração do Better Auth, adicionar as variáveis `GOOGLE_CLIENT_ID` e `GOOGLE_CLIENT_SECRET` necessárias e ajustar a interface de início de sessão.
 
-## Build With an Agent
+## Construir com um Agente
 
-This starter is designed to be used with coding agents. The generated project includes instructions that tell agents how to plan, ask questions, split work, use sub-agents when useful, follow the design system, and verify changes.
+Este starter foi concebido para ser utilizado com agentes de programação. O projeto gerado inclui instruções que dizem aos agentes como planear, fazer perguntas, dividir o trabalho, utilizar sub-agentes quando útil, seguir o sistema de design e verificar as alterações.
 
-- `AGENTS.md` is the main instruction file for Codex, Cursor, and other agent-compatible tools.
-- `CLAUDE.md` points Claude users to the same project guidance.
-- `.agents/skills/` and `.claude/skills/` include optional workflows for more specialized tasks.
-- `DESIGN.md` defines the UI design system agents should follow.
+- `AGENTS.md` é o ficheiro de instruções principal para o Codex, o Cursor e outras ferramentas compatíveis com agentes.
+- `CLAUDE.md` encaminha os utilizadores do Claude para a mesma orientação de projeto.
+- `.agents/skills/` e `.claude/skills/` incluem fluxos de trabalho opcionais para tarefas mais especializadas.
+- `DESIGN.md` define o sistema de design da interface que os agentes devem seguir.
 
-The default workflow does not require slash commands or a separate spec file.
+O fluxo de trabalho predefinido não requer comandos de barra (slash commands) nem um ficheiro de especificação separado.
 
-### Recommended Default Workflow
+### Fluxo de Trabalho Predefinido Recomendado
 
-1. Install the starter and open the project in your coding-agent environment.
-2. Switch your agent tool to planning mode.
-3. Describe the app you want to build in plain language.
-4. Let the agent ask clarifying questions and shape a clear plan.
-5. Confirm the plan once the goal, scope, constraints, and success criteria are clear.
-6. Switch your agent tool to edit mode.
-7. Ask the agent to implement the approved plan.
-8. The main agent should split the work into parallel streams, silos, or feature chunks that fit within context.
-9. The agent should use sub-agents to implement those chunks in parallel where useful, then coordinate the results.
-10. The agent should run quality checks such as lint, typecheck, and build.
-11. Review the result in the browser and iterate.
+1. Instale o starter e abra o projeto no ambiente do seu agente de programação.
+2. Coloque a sua ferramenta de agente em modo de planeamento.
+3. Descreva a aplicação que pretende construir em linguagem simples.
+4. Deixe o agente fazer perguntas de esclarecimento e dar forma a um plano claro.
+5. Confirme o plano assim que o objetivo, o âmbito, as restrições e os critérios de sucesso estiverem claros.
+6. Coloque a sua ferramenta de agente em modo de edição.
+7. Peça ao agente para implementar o plano aprovado.
+8. O agente principal deve dividir o trabalho em fluxos paralelos, silos ou blocos de funcionalidades que caibam no contexto.
+9. O agente deve utilizar sub-agentes para implementar esses blocos em paralelo, quando útil, e depois coordenar os resultados.
+10. O agente deve executar verificações de qualidade como lint, typecheck e build.
+11. Reveja o resultado no navegador e itere.
 
-You do not need a special command for this default workflow. The project instructions already tell the agent how to plan, split implementation work, use sub-agents, and verify the result.
+Não necessita de um comando especial para este fluxo de trabalho predefinido. As instruções do projeto já dizem ao agente como planear, dividir o trabalho de implementação, utilizar sub-agentes e verificar o resultado.
 
-## Starter Prompt
+## Prompt Inicial
 
-Use this as a first message to your coding agent after installing the starter:
+Utilize isto como primeira mensagem para o seu agente de programação após instalar o starter:
 
 ```text
 I am using the Xani Agentic Starter Kit. Treat the existing app as boilerplate that should be replaced by the product I describe.
@@ -170,43 +170,43 @@ What I want to build:
 [Describe your app here]
 ```
 
-For example:
+Por exemplo:
 
 ```text
 What I want to build:
 A lightweight CRM for solo consultants. It should let users manage clients, track deals, write notes, set follow-up reminders, and view a simple dashboard of open opportunities.
 ```
 
-## When to Use Specs
+## Quando Utilizar Especificações
 
-For most POCs and MVPs, the normal agent workflow is enough. Use a spec when the feature is large, long-running, risky, or needs to be split across multiple implementation sessions.
+Para a maioria das POCs e MVPs, o fluxo de trabalho normal do agente é suficiente. Utilize uma especificação quando a funcionalidade for grande, de longa duração, arriscada ou tiver de ser dividida por várias sessões de implementação.
 
-The starter includes two skills for that workflow:
+O starter inclui duas skills para esse fluxo de trabalho:
 
-- `create-spec`: turns a planning conversation into `specs/{feature}/` with requirements, task files, dependency waves, and manual action notes.
-- `implement-feature`: reads a spec folder and coordinates implementation wave by wave with review gates.
+- `create-spec`: transforma uma conversa de planeamento em `specs/{feature}/` com requisitos, ficheiros de tarefas, ondas de dependências e notas de ações manuais.
+- `implement-feature`: lê uma pasta de especificação e coordena a implementação onda a onda com pontos de controlo de revisão.
 
-Use this workflow when:
+Utilize este fluxo de trabalho quando:
 
-- the feature spans many files or modules
-- multiple agents should work in parallel
-- the implementation may take more than one session
-- you need resumable progress tracking
-- you want a written implementation record before coding starts
+- a funcionalidade abrange muitos ficheiros ou módulos
+- vários agentes devem trabalhar em paralelo
+- a implementação pode demorar mais do que uma sessão
+- precisa de acompanhamento de progresso retomável
+- pretende um registo de implementação escrito antes de começar a programar
 
-Example agent request:
+Exemplo de pedido ao agente:
 
 ```text
 Create a spec for the billing and subscriptions feature we just planned. Break it into parallel implementation waves and include any manual setup steps.
 ```
 
-Then:
+Depois:
 
 ```text
 Implement the billing and subscriptions spec from specs/billing-subscriptions.
 ```
 
-## Project Structure
+## Estrutura do Projeto
 
 ```text
 src/
@@ -242,17 +242,17 @@ src/
     └── utils.ts
 ```
 
-Important root files:
+Ficheiros importantes na raiz:
 
-- `AGENTS.md`: coding-agent behavior rules
-- `CLAUDE.md`: Claude entrypoint for the same guidance
-- `DESIGN.md`: UI design system and component guidance
-- `drizzle.config.ts`: Drizzle migration configuration
-- `docker-compose.yml`: local PostgreSQL service
-- `env.example`: environment variable template
-- `components.json`: shadcn/ui configuration
+- `AGENTS.md`: regras de comportamento dos agentes de programação
+- `CLAUDE.md`: ponto de entrada do Claude para a mesma orientação
+- `DESIGN.md`: sistema de design da interface e orientação sobre componentes
+- `drizzle.config.ts`: configuração das migrações do Drizzle
+- `docker-compose.yml`: serviço PostgreSQL local
+- `env.example`: modelo das variáveis de ambiente
+- `components.json`: configuração do shadcn/ui
 
-## Available Scripts
+## Scripts Disponíveis
 
 ```bash
 pnpm dev           # Start the development server with Turbopack
@@ -270,125 +270,125 @@ pnpm db:migrate    # Run Drizzle migrations
 pnpm db:studio     # Open Drizzle Studio
 ```
 
-The repository also contains Drizzle push/reset helper scripts for local experimentation. For schema changes you intend to keep, prefer:
+O repositório também contém scripts auxiliares de push/reset do Drizzle para experimentação local. Para alterações de esquema que pretenda manter, prefira:
 
 ```bash
 pnpm db:generate
 pnpm db:migrate
 ```
 
-Do not use schema push as a replacement for migrations in real project work.
+Não utilize o schema push como substituto das migrações em trabalho de projeto real.
 
-## Database Workflow
+## Fluxo de Trabalho da Base de Dados
 
-For local development:
+Para desenvolvimento local:
 
 ```bash
 docker compose up -d
 pnpm db:migrate
 ```
 
-When your app needs schema changes, ask your agent to update `src/lib/schema.ts`, generate a migration, and run it:
+Quando a sua aplicação necessitar de alterações de esquema, peça ao seu agente para atualizar `src/lib/schema.ts`, gerar uma migração e executá-la:
 
 ```bash
 pnpm db:generate
 pnpm db:migrate
 ```
 
-If you deploy to Vercel or another hosted environment, set `POSTGRES_URL` in that environment before running migrations or building the app.
+Se implementar na Vercel ou noutro ambiente alojado, defina `POSTGRES_URL` nesse ambiente antes de executar as migrações ou compilar a aplicação.
 
-## AI Features
+## Funcionalidades de IA
 
-The starter uses the Vercel AI SDK with OpenRouter. Set these variables to enable AI chat:
+O starter utiliza o Vercel AI SDK com o OpenRouter. Defina estas variáveis para ativar o chat com IA:
 
 ```env
 OPENROUTER_API_KEY=sk-or-v1-your-key
 OPENROUTER_MODEL="openai/gpt-5-mini"
 ```
 
-OpenRouter lets you switch models without changing the application code. Update `OPENROUTER_MODEL` when you want to try a different model.
+O OpenRouter permite-lhe trocar de modelo sem alterar o código da aplicação. Atualize `OPENROUTER_MODEL` quando quiser experimentar um modelo diferente.
 
-## File Storage
+## Armazenamento de Ficheiros
 
-The starter includes a storage abstraction that can use local storage in development or Vercel Blob in production.
+O starter inclui uma abstração de armazenamento que pode utilizar armazenamento local em desenvolvimento ou o Vercel Blob em produção.
 
-For local development, leave `BLOB_READ_WRITE_TOKEN` empty. Files are stored under `public/uploads/`.
+Para desenvolvimento local, deixe `BLOB_READ_WRITE_TOKEN` vazio. Os ficheiros são guardados em `public/uploads/`.
 
-For Vercel Blob:
+Para o Vercel Blob:
 
-1. Create a Blob store in Vercel.
-2. Copy the `BLOB_READ_WRITE_TOKEN`.
-3. Add it to your production environment variables.
+1. Crie um Blob store na Vercel.
+2. Copie o `BLOB_READ_WRITE_TOKEN`.
+3. Adicione-o às variáveis de ambiente de produção.
 
-The app chooses the storage backend based on whether `BLOB_READ_WRITE_TOKEN` is configured.
+A aplicação escolhe o backend de armazenamento consoante o `BLOB_READ_WRITE_TOKEN` esteja ou não configurado.
 
-## Deployment
+## Implementação
 
-Vercel is the recommended deployment target.
+A Vercel é o destino de implementação recomendado.
 
 ```bash
 npm install -g vercel
 vercel --prod
 ```
 
-Set the required production environment variables:
+Defina as variáveis de ambiente de produção necessárias:
 
 - `POSTGRES_URL`
 - `BETTER_AUTH_SECRET`
 - `NEXT_PUBLIC_APP_URL`
-- `OPENROUTER_API_KEY`, if using AI features
-- `OPENROUTER_MODEL`, if using AI features
-- `BLOB_READ_WRITE_TOKEN`, if using Vercel Blob
-- `POLAR_WEBHOOK_SECRET` and `POLAR_ACCESS_TOKEN`, if using Polar payments
+- `OPENROUTER_API_KEY`, se utilizar funcionalidades de IA
+- `OPENROUTER_MODEL`, se utilizar funcionalidades de IA
+- `BLOB_READ_WRITE_TOKEN`, se utilizar o Vercel Blob
+- `POLAR_WEBHOOK_SECRET` e `POLAR_ACCESS_TOKEN`, se utilizar pagamentos Polar
 
-The default `pnpm build` script runs database migrations before `next build`. If your CI or host should not run migrations during build, use `pnpm build:ci` and run migrations as a separate deployment step.
+O script `pnpm build` predefinido executa as migrações da base de dados antes do `next build`. Se a sua CI ou alojamento não deve executar migrações durante o build, utilize `pnpm build:ci` e execute as migrações como um passo de implementação separado.
 
-## Troubleshooting
+## Resolução de Problemas
 
-### The app cannot connect to Postgres
+### A aplicação não consegue ligar-se ao Postgres
 
-Confirm Docker is running and start the database:
+Confirme que o Docker está a correr e inicie a base de dados:
 
 ```bash
 docker compose up -d
 ```
 
-Then check that `POSTGRES_URL` in `.env` matches the database connection string.
+Depois verifique que o `POSTGRES_URL` no `.env` corresponde à string de ligação da base de dados.
 
-### Auth reset or verification emails are not arriving
+### Os emails de reposição ou verificação de autenticação não chegam
 
-In development, links are logged to the terminal. This is intentional. Connect an email provider before using password reset or verification in production.
+Em desenvolvimento, as ligações são registadas no terminal. Isto é intencional. Ligue um fornecedor de email antes de utilizar a reposição de palavra-passe ou a verificação em produção.
 
-### AI chat is not working
+### O chat com IA não funciona
 
-Set `OPENROUTER_API_KEY` and restart the dev server. Also confirm `OPENROUTER_MODEL` is a model available to your OpenRouter account.
+Defina `OPENROUTER_API_KEY` e reinicie o servidor de desenvolvimento. Confirme também que `OPENROUTER_MODEL` é um modelo disponível na sua conta OpenRouter.
 
-### My agent is preserving too much boilerplate
+### O meu agente está a preservar demasiado boilerplate
 
-Tell the agent directly that the starter UI is scaffolding and should be replaced:
+Diga ao agente diretamente que a interface do starter é andaime (scaffolding) e deve ser substituída:
 
 ```text
 Replace the starter UI with the actual product UI. Do not keep setup checklists, placeholder navigation, demo content, or boilerplate copy unless I explicitly ask for it.
 ```
 
-### I need Google login
+### Preciso de início de sessão com a Google
 
-Ask your agent to add Google OAuth through Better Auth while keeping email/password enabled. You will need Google OAuth credentials and production callback URLs.
+Peça ao seu agente para adicionar o Google OAuth através do Better Auth, mantendo o email/palavra-passe ativado. Vai precisar de credenciais OAuth da Google e de URLs de callback de produção.
 
-## Contributing
+## Contribuir
 
-1. Fork this repository.
-2. Create a feature branch.
-3. Make your changes.
-4. Run the relevant checks.
-5. Open a pull request.
+1. Faça fork deste repositório.
+2. Crie um branch de funcionalidade.
+3. Faça as suas alterações.
+4. Execute as verificações relevantes.
+5. Abra um pull request.
 
-## License
+## Licença
 
-This project is licensed under the MIT License.
+Este projeto está licenciado sob a Licença MIT.
 
-## Need Help?
+## Precisa de Ajuda?
 
-- Check the repository issues: [github.com/AlexandreXavier/xani-agentic-starter-kit/issues](https://github.com/AlexandreXavier/xani-agentic-starter-kit/issues)
-- Review `AGENTS.md`, `CLAUDE.md`, and `DESIGN.md`
-- Open a new issue with the exact setup steps, error output, and environment details
+- Consulte os issues do repositório: [github.com/AlexandreXavier/xani-agentic-starter-kit/issues](https://github.com/AlexandreXavier/xani-agentic-starter-kit/issues)
+- Reveja `AGENTS.md`, `CLAUDE.md` e `DESIGN.md`
+- Abra um novo issue com os passos exatos de configuração, o output do erro e os detalhes do ambiente
