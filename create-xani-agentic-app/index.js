@@ -132,6 +132,15 @@ async function main() {
       await fs.move(gitignoreTemplatePath, gitignorePath, { overwrite: true });
     }
 
+    // Rename _npmrc to .npmrc (npm excludes .npmrc from published packages)
+    const npmrcTemplatePath = path.join(targetDir, '_npmrc');
+    const npmrcPath = path.join(targetDir, '.npmrc');
+
+    if (fs.existsSync(npmrcTemplatePath)) {
+      spinner.text = 'Setting up .npmrc file...';
+      await fs.move(npmrcTemplatePath, npmrcPath, { overwrite: true });
+    }
+
     // Update package.json name if not current directory
     if (projectDir !== '.') {
       const packageJsonPath = path.join(targetDir, 'package.json');

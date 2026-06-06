@@ -35,6 +35,7 @@ const excludePatterns = [
   'yarn.lock',
   'tsconfig.tsbuildinfo',
   '.env',
+  '.npmrc',
   'create-xani-agentic-app'
 ];
 
@@ -90,6 +91,19 @@ async function sync() {
       console.log(`${colors.green}✓${colors.reset} .gitignore copied as _gitignore`);
     } else {
       console.log(`${colors.yellow}⚠${colors.reset} .gitignore not found in project root`);
+    }
+
+    // Explicitly copy .npmrc file as _npmrc (npm excludes .npmrc by default).
+    // Ships legacy-peer-deps=true so `npm install` tolerates peerOptional
+    // mismatches (e.g. better-auth wanting a newer drizzle-orm) the way pnpm does.
+    console.log(`${colors.cyan}📄 Copying .npmrc as _npmrc...${colors.reset}`);
+    const npmrcSrc = path.join(projectRoot, '.npmrc');
+    const npmrcDest = path.join(templateDir, '_npmrc');
+    if (await fs.pathExists(npmrcSrc)) {
+      await fs.copy(npmrcSrc, npmrcDest, { overwrite: true });
+      console.log(`${colors.green}✓${colors.reset} .npmrc copied as _npmrc`);
+    } else {
+      console.log(`${colors.yellow}⚠${colors.reset} .npmrc not found in project root`);
     }
 
     // Process template package.json

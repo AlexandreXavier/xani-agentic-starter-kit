@@ -1,6 +1,6 @@
 {
   "name": "xani-agentic-starter-kit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "pnpm run db:migrate && next build",
